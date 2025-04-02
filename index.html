@@ -1,74 +1,539 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web前端开发技术课程仓库</title>
+    <title>口腔健康指南 - 专业护理建议</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a9d8f;
+            --secondary-color: #264653;
+            --accent-color: #e9c46a;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f5f5f5;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>') no-repeat;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            margin: -2rem auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            font-weight: 500;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+        
+        .search-form {
+            display: flex;
+            margin: 2rem 0;
+            max-width: 600px;
+        }
+        
+        .search-form input[type="text"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .search-form input[type="text"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .search-form input[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .search-form input[type="submit"]:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .card {
+            background-color: var(--light-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        ol, ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .highlight {
+            background-color: rgba(233, 196, 106, 0.2);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .external-link::after {
+            content: " ↗";
+            font-size: 0.8em;
+        }
+        
+        .media-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .media-item {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .media-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .media-item img:hover {
+            transform: scale(1.02);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--secondary-color);
+            color: white;
+            margin-top: 3rem;
+        }
+        
+        .footer span {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        .warning-note {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid var(--warning-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .icon-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .icon-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            min-width: 200px;
+        }
+        
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                padding: 1.5rem;
+                margin: -1rem auto 1rem;
+            }
+            
+            .media-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .media-item {
+                min-width: 100%;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
 </head>
 <body>
-    <h1>口腔健康</h1>
-    <div>
-        <h2>表单元素</h2>
-        <form action="https://www.iconfont.cn/search/index?searchType=icon">
-        <input type="text"name="q">
-        <input type="submit" value="提交">
-    </form>
-    <p>
-          口腔健康是指口腔及其相关组织（如牙齿、牙龈、舌头等）处于良好状态，能够正常发挥功能，且没有疾病或不适。良好的口腔健康不仅是整体健康的重要组成部分，还对生活质量、社交和心理健康有重要影响。
-    </p>
-    <p>
-          下面是一些维护口腔健康的措施
-    </p>
-    <ol>
-       <li>
-        正确刷牙:每天至少刷牙两次,使用含氟牙膏,每次刷牙至少2分钟。
-       </li>
-       <li>
-        使用牙线：每天使用牙线清洁牙缝，去除牙刷无法清除的食物残渣和牙菌斑。
-       </li>
-       <li>
-        定期口腔检查:每6个月进行一次口腔检查,及时发现和处理问题。
-       </li>
-       <li>
-        健康饮食：减少高糖食物和饮料的摄入，多吃富含纤维的食物，如蔬菜和水果。
-       </li>
-       <li>
-        戒烟限酒：吸烟和过量饮酒会增加口腔疾病和口腔癌的风险。
-       </li>
-       <li>
-        使用漱口水：含氟或抗菌漱口水可以帮助减少牙菌斑和预防牙龈炎。
-       </li>
-       <li>
-        保护牙齿：避免用牙齿咬硬物，运动时佩戴护齿套以防牙齿损伤。
-       </li>
-
-    </ol>
-    <ul>
-        <li>儿童：从小培养良好的口腔卫生习惯，定期涂氟和窝沟封闭预防龋齿。</li>
-        <li>孕妇：孕期激素变化可能增加牙龈炎风险，需特别注意口腔卫生。</li>
-        <li>老年人：随着年龄增长，牙齿磨损、牙龈退缩等问题增多，需加强护理和定期检查。</li>
-    </ul>
-   </div>
-   <p>接下来我将更详细的为大家介绍关于口腔健康。<a href="https://www.3uol.com/data/184142.html">请点击这个链接</a></p>
-    <br>如有不适请及时到线下问诊 <span>（科学就医）</span>
-    <div>
-        <p>图片和视频可以更好地帮助我们了解该知识<img src="images\微观世界的牙齿护理.jpg" alt="口腔健康"width="400"></p>
-        <p>
-            <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=503513271&bvid=BV1eg411G7WE&cid=352477768&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-        </p>
-        <p>
-            <img src="images\口腔.svg" alt="牙齿图标">
-        </p>
+    <header>
+        <div class="container animated">
+            <h1><i class="fas fa-tooth"></i> 口腔健康指南</h1>
+            <p class="header-subtitle">专业护理建议与日常维护技巧，助您拥有健康笑容</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content animated delay-1">
+            <div class="card">
+                <h2><i class="fas fa-search"></i> 口腔健康知识搜索</h2>
+                <form class="search-form" action="https://www.iconfont.cn/search/index?searchType=icon">
+                    <input type="text" name="q" placeholder="搜索更多口腔健康知识...">
+                    <input type="submit" value="搜索">
+                </form>
+            </div>
+            
+            <div class="animated delay-1">
+                <h2><i class="fas fa-info-circle"></i> 口腔健康概述</h2>
+                <p>口腔健康是指口腔及其相关组织（如牙齿、牙龈、舌头等）处于良好状态，能够正常发挥功能，且没有疾病或不适。良好的口腔健康不仅是整体健康的重要组成部分，还对生活质量、社交和心理健康有重要影响。</p>
+            </div>
+            
+            <div class="card animated delay-2">
+                <h2><i class="fas fa-shield-alt"></i> 口腔健康维护措施</h2>
+                <p>下面是一些维护口腔健康的专业建议：</p>
+                
+                <div class="icon-list">
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <i class="fas fa-toothbrush"></i>
+                        </div>
+                        <div>
+                            <h3>正确刷牙</h3>
+                            <p>每天至少刷牙两次，使用含氟牙膏，每次刷牙至少2分钟。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <i class="fas fa-hands-wash"></i>
+                        </div>
+                        <div>
+                            <h3>使用牙线</h3>
+                            <p>每天使用牙线清洁牙缝，去除牙刷无法清除的食物残渣和牙菌斑。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <h3>定期检查</h3>
+                            <p>每6个月进行一次口腔检查，及时发现和处理问题。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div>
+                            <h3>健康饮食</h3>
+                            <p>减少高糖食物和饮料的摄入，多吃富含纤维的食物。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="icon-list">
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <i class="fas fa-smoking-ban"></i>
+                        </div>
+                        <div>
+                            <h3>戒烟限酒</h3>
+                            <p>吸烟和过量饮酒会增加口腔疾病和口腔癌的风险。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <div>
+                            <h3>使用漱口水</h3>
+                            <p>含氟或抗菌漱口水可以帮助减少牙菌斑和预防牙龈炎。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-item">
+                        <div class="icon-circle">
+                            <i class="fas fa-shield-virus"></i>
+                        </div>
+                        <div>
+                            <h3>保护牙齿</h3>
+                            <p>避免用牙齿咬硬物，运动时佩戴护齿套以防牙齿损伤。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="animated delay-2">
+                <h2><i class="fas fa-users"></i> 特殊人群口腔护理</h2>
+                <ul>
+                    <li><span class="highlight">儿童：</span>从小培养良好的口腔卫生习惯，定期涂氟和窝沟封闭预防龋齿。</li>
+                    <li><span class="highlight">孕妇：</span>孕期激素变化可能增加牙龈炎风险，需特别注意口腔卫生。</li>
+                    <li><span class="highlight">老年人：</span>随着年龄增长，牙齿磨损、牙龈退缩等问题增多，需加强护理和定期检查。</li>
+                </ul>
+            </div>
+            
+            <div class="animated delay-3">
+                <h2><i class="fas fa-book"></i> 了解更多</h2>
+                <p>接下来我将更详细的为大家介绍关于口腔健康。<a href="https://www.3uol.com/data/184142.html" class="external-link">请点击这个链接查看详细指南</a></p>
+                
+                <div class="warning-note">
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>重要提示：</strong>如有不适请及时到线下问诊 <span>（科学就医）</span></p>
+                </div>
+            </div>
+            
+            <div class="animated delay-3">
+                <h2><i class="fas fa-images"></i> 多媒体资料</h2>
+                <p>图片和视频可以更好地帮助我们了解口腔健康知识：</p>
+                
+                <div class="media-container">
+                    <div class="media-item">
+                        <img src="images/微观世界的牙齿护理.jpg" alt="口腔健康微观图" loading="lazy">
+                        <p class="text-center"><small>牙齿微观护理示意图</small></p>
+                    </div>
+                    
+                    <div class="media-item">
+                        <div class="video-wrapper">
+                            <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=503513271&bvid=BV1eg411G7WE&cid=352477768&p=1" scrolling="no" allowfullscreen="true"></iframe>
+                        </div>
+                        <p class="text-center"><small>口腔健康科普视频</small></p>
+                    </div>
+                    
+                    <div class="media-item">
+                        <img src="images/口腔.svg" alt="牙齿解剖图" loading="lazy">
+                        <p class="text-center"><small>牙齿解剖结构图</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="animated delay-3">
+                <h2><i class="fas fa-table"></i> 口腔健康数据</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>年龄段</th>
+                            <th>常见问题</th>
+                            <th>建议检查频率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>儿童(0-12岁)</td>
+                            <td>龋齿、牙齿排列不齐</td>
+                            <td>每3-6个月</td>
+                        </tr>
+                        <tr>
+                            <td>青少年(13-19岁)</td>
+                            <td>智齿问题、牙龈炎</td>
+                            <td>每6个月</td>
+                        </tr>
+                        <tr>
+                            <td>成人(20-59岁)</td>
+                            <td>牙周病、牙齿磨损</td>
+                            <td>每6-12个月</td>
+                        </tr>
+                        <tr>
+                            <td>老年人(60岁以上)</td>
+                            <td>牙齿脱落、口腔癌</td>
+                            <td>每3-6个月</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div>
-        <h2>表格相关元素</h2>
-        <table>
-            <tr><td>1.1</td></tr><td>1.2</td><td>1.3</td>
-            <tr><td>2.1</td></tr><td>2.2</td><td>2.3</td>
-        </table>
-    </div>
-    <div>
-
-    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>© 2023 口腔健康指南 | 专业医疗信息仅供参考</p>
+            <p>如有任何口腔健康问题，请咨询专业牙科医生 <span>（健康口腔，幸福生活）</span></p>
+        </div>
+    </footer>
+    
+    <script>
+        // 简单的滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
