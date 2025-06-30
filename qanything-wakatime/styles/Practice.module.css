@@ -1,0 +1,737 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 0;
+  color: white;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.backButton {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+.headerContent h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.practiceContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  margin: 0 0 1.5rem 0;
+  color: #1e293b;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.example {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+/* HTML基础练习样式 */
+.nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: #4f46e5;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid #4f46e5;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  background: #4f46e5;
+  color: white;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table th {
+  background: #f1f5f9;
+  font-weight: 600;
+  color: #475569;
+}
+
+.table tr:hover {
+  background: #f8fafc;
+}
+
+.form {
+  max-width: 500px;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.submitButton {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+/* CSS布局练习样式 */
+.boxModelDemo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.boxModel {
+  position: relative;
+}
+
+.margin {
+  background: #fef3c7;
+  padding: 20px;
+  border: 2px dashed #f59e0b;
+  position: relative;
+}
+
+.border {
+  background: #dbeafe;
+  padding: 15px;
+  border: 3px solid #3b82f6;
+  position: relative;
+}
+
+.padding {
+  background: #d1fae5;
+  padding: 15px;
+  border: 2px dashed #10b981;
+  position: relative;
+}
+
+.content {
+  background: #fee2e2;
+  padding: 20px;
+  border: 2px solid #ef4444;
+  text-align: center;
+  font-weight: 600;
+}
+
+.label {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.boxInfo {
+  margin-top: 1rem;
+}
+
+.boxInfo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.boxInfo li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  border-left: 4px solid #4f46e5;
+}
+
+.flexContainer {
+  display: flex;
+  background: white;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  gap: 1rem;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.justifyBetween {
+  justify-content: space-between;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.heightDemo {
+  height: 100px;
+}
+
+.flexItem {
+  background: #4f46e5;
+  color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-areas: 
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 200px 1fr;
+  gap: 1rem;
+  height: 300px;
+  margin: 1rem 0;
+}
+
+.gridItem {
+  padding: 1rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  grid-area: header;
+  background: #ef4444;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #10b981;
+}
+
+.main {
+  grid-area: main;
+  background: #3b82f6;
+}
+
+.footer {
+  grid-area: footer;
+  background: #8b5cf6;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.card {
+  background: #4f46e5;
+  color: white;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.responsiveDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.responsiveBox {
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+}
+
+.desktop {
+  background: #3b82f6;
+  display: block;
+}
+
+.tablet {
+  background: #10b981;
+  display: none;
+}
+
+.mobile {
+  background: #ef4444;
+  display: none;
+}
+
+.note {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border-left: 4px solid #f59e0b;
+}
+
+.animationDemo {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.animatedBox {
+  width: 100px;
+  height: 100px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.bounce {
+  animation: bounceAnimation 2s infinite;
+}
+
+.rotate {
+  animation: rotateAnimation 3s linear infinite;
+}
+
+.pulse {
+  animation: pulseAnimation 2s infinite;
+}
+
+@keyframes bounceAnimation {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* JavaScript DOM操作练习样式 */
+.eventDemo {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.demoButton {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.demoButton:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.textDemo {
+  text-align: center;
+}
+
+.demoText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.colorBox {
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 auto 1rem;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.listDemo {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.addItemForm {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.itemInput {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.itemInput:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.dynamicList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.removeButton {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.removeButton:hover {
+  background: #dc2626;
+}
+
+.visibilityDemo {
+  text-align: center;
+}
+
+.toggleBox {
+  background: #4f46e5;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.interactiveDemo {
+  display: flex;
+  justify-content: center;
+}
+
+.gameArea {
+  text-align: center;
+}
+
+.calculator {
+  background: #1f2937;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+}
+
+.calculatorDisplay {
+  background: #111827;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: right;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.calculatorButtons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.calcButton {
+  background: #374151;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calcButton:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+}
+
+.calcButton:active {
+  transform: translateY(0);
+}
+
+.clear {
+  background: #ef4444 !important;
+}
+
+.clear:hover {
+  background: #dc2626 !important;
+}
+
+.rowSpan {
+  grid-row: span 2;
+}
+
+.colSpan {
+  grid-column: span 2;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .tablet {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+  
+  .headerContent {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .main {
+    padding: 1rem;
+  }
+  
+  .section {
+    padding: 1rem;
+  }
+  
+  .gridContainer {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+  }
+  
+  .listContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .animationDemo {
+    gap: 1rem;
+  }
+  
+  .buttonGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile {
+    display: block;
+  }
+  .tablet {
+    display: none;
+  }
+  
+  .addItemForm {
+    flex-direction: column;
+  }
+  
+  .eventDemo {
+    flex-direction: column;
+  }
+  
+  .nav {
+    flex-direction: column;
+  }
+  
+  .calculator {
+    max-width: 100%;
+  }
+} 
